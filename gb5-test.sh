@@ -39,8 +39,8 @@ _banner() {
     echo -e "# ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## #"
     echo -e "#           Geekbench 5 Test for Servers        #"
     echo -e "#                 $script_version                  #"
-    echo -e "#         $(_yellow "bash <(curl -sL bash.icu/gb5)")        #"
-    echo -e "#         https://github.com/i-abc/gb5         #"
+    echo -e "#         $(_yellow "bash <(curl -sL bash.icu/gb5)")    #"
+    echo -e "#         https://github.com/melthehe/GeekbenchMultiTester #"
     echo -e "# ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## #"
     echo
 }
