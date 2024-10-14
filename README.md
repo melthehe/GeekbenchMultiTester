@@ -1,57 +1,70 @@
-# Geekbench 5 专测
+# Geekbench MultiTester
 
-用心做好 GB5 测试，让测试更方便、更迅速、更人性化。
+**Geekbench MultiTester** is a multiplatform benchmarking tool designed to simplify and accelerate CPU performance testing. It offers features such as automatic swap management, SHA-256 security checks, and detailed result outputs with personal save links.
 
-## 脚本特性
+## Features
 
-1. 适配 x86_64、aarch64、riscv64
-2. 针对大陆优化，缩减 GB5 程序下载时间
-3. 拥有 SHA-256 校验，杜绝恶意程序
-4. 针对内存不足 1G 的服务器，会自动添加 Swap
-5. 测试无残留，测试产生的文件、Swap 会清除
-6. 提供详细结果、个人保存链接
-7. 提供同类型 CPU 参考
+- **Cross-Platform Compatibility:** Works on x86_64, aarch64, and riscv64 architectures.
+- **Optimized for Performance:** Reduces download times for Geekbench 5, especially for users in mainland China.
+- **Security:** Includes SHA-256 checksum verification to prevent malicious programs.
+- **Automatic Swap Management:** Automatically adds swap for servers with less than 1GB of RAM.
+- **No Residual Files:** Cleans up any test files and swap space after testing.
+- **Detailed Reporting:** Provides comprehensive results and personal save links for results.
+- **CPU Comparison Links:** Offers reference links for similar CPU types.
 
-## 使用方法
+## Installation
 
-<a target="_blank" href="https://bash.icu/gb5"><img src="https://img.shields.io/website?url=https%3A%2F%2Fbash.icu%2Fgb5&label=bash.icu%2Fgb5&cacheSeconds=300" />
+To run the Geekbench MultiTester script, use the following command:
 
-```
-bash <(curl -sL bash.icu/gb5)
-```
-
-或
-
-```
-bash <(wget -qO- https://raw.githubusercontent.com/i-abc/GB5/main/gb5-test.sh)
+```bash
+bash <(curl -sL https://raw.githubusercontent.com/melthehe/GeekbenchMultiTester/main/gb5-test.sh)
 ```
 
-## 使用截图
+or
 
-- 输出结果
+```bash
+bash <(wget -qO- https://raw.githubusercontent.com/melthehe/GeekbenchMultiTester/main/gb5-test.sh)
+```
 
-![](https://github.com/i-abc/GB5/raw/main/images/1.png)
+## Usage
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/melthehe/GeekbenchMultiTester.git
+   cd GeekbenchMultiTester
+   ```
+
+2. Execute the script:
+
+   ```bash
+   bash gb5-test.sh
+   ```
+
+3. Follow the on-screen instructions to perform the benchmark.
+
+## Example Output
 
 ```
 # ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## #
-#            专用于服务器的GB5测试             #
-#                 v2023-08-07                  #
-#        https://github.com/i-abc/gb5          #
+#            Geekbench MultiTester              #
+#                 v2023-08-07                   #
+#        https://github.com/melthehe/GeekbenchMultiTester  #
 # ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## #
 
-当前时间：2023-08-07 08:22:28 UTC
-净测试时长：2分47秒
+Current Time: 2023-08-07 08:22:28 UTC
+Net Test Duration: 2 minutes 47 seconds
 
-Geekbench 5 测试结果
+Geekbench 5 Test Results
 
-系统信息
+System Information
   Operating System              Red Hat Enterprise Linux 9.2 (Plow)
   Kernel                        Linux 5.14.0-284.11.1.el9_2.x86_64 x86_64
   Model                         Xen HVM domU
   Motherboard                   N/A
   BIOS                          Xen 4.11.amazon
 
-处理器信息
+Processor Information
   Name                          Intel Xeon E5-2676 v3
   Topology                      1 Processor, 1 Core
   Identifier                    GenuineIntel Family 6 Model 63 Stepping 2
@@ -61,35 +74,35 @@ Geekbench 5 测试结果
   L2 Cache                      256 KB
   L3 Cache                      30.0 MB
 
-内存信息
+Memory Information
   Size                          769 MB
 
-单核测试分数：683
-多核测试分数：681
-详细结果链接：https://browser.geekbench.com/v5/cpu/21552304
-可供参考链接：https://browser.geekbench.com/search?k=v5_cpu&q=Intel%20Xeon%20E5-2676%20v3
+Single-Core Score: 683
+Multi-Core Score: 681
+Detailed Results Link: https://browser.geekbench.com/v5/cpu/21552304
+Reference Links: https://browser.geekbench.com/search?k=v5_cpu&q=Intel%20Xeon%20E5-2676%20v3
 
-个人保存链接：https://browser.geekbench.com/v5/cpu/21552304/claim?key=485945
+Personal Save Link: https://browser.geekbench.com/v5/cpu/21552304/claim?key=485945
 ```
 
-- 完整过程
+## TODO
 
-![](https://github.com/i-abc/GB5/raw/main/images/1.gif)
+- Display scores directly in the terminal.
+- Provide comparisons for similar CPUs after testing.
+- Add more CPU-related tests.
+- Fix issues with adding swap in LXC.
+- Support for ARM architectures.
+- Integrate Geekbench 6.
+- Conduct basic CPU tests before running Geekbench tests, including disk tests if swap is involved.
 
-- x86_64
+## Contributing
 
-![](https://github.com/i-abc/GB5/raw/main/images/2.png)
+Contributions are welcome! Please feel free to submit a pull request or open an issue to discuss improvements.
 
-- aarch64
+## License
 
-![](https://github.com/i-abc/GB5/raw/main/images/3.png)
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 待办
+## Acknowledgments
 
-- [x] 将分数直接展示到终端
-- [x] 在测试后会提供同种 CPU 的对比
-- [ ] 增加更多 CPU 方面的测试
-- [ ] lxc 添加 Swap 失败
-- [x] 支持 ARM
-- [ ] 添加 GB6
-- [ ] 在进行 GB 测试前先进行简单的 CPU 测试，若涉及 Swap 还要测试硬盘，通过后才进行 GB 测试，见 [issue 1](https://github.com/i-abc/GB5/issues/1)
+- Special thanks to the developers of Geekbench for their benchmark tools.
