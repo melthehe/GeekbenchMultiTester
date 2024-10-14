@@ -26,6 +26,72 @@ or
 bash <(wget -qO- https://raw.githubusercontent.com/melthehe/GeekbenchMultiTester/main/gb5-test.sh)
 ```
 
+## Python Multiplatform Script
+
+This project includes a Python script that is designed to work across multiple platforms. You can execute the benchmarking tests directly using Python. Here's how to run it:
+
+1. Ensure you have Python 3.x installed.
+2. Clone the repository:
+
+   ```bash
+   git clone https://github.com/melthehe/GeekbenchMultiTester.git
+   cd GeekbenchMultiTester
+   ```
+
+3. Run the Python script:
+
+   ```bash
+   python3 geekbench_multitester.py
+   ```
+
+### Sample `geekbench_multitester.py`
+
+Here’s a simple example of what the `geekbench_multitester.py` script might look like:
+
+```python
+import os
+import platform
+import subprocess
+import hashlib
+
+def verify_checksum(file_path, expected_hash):
+    """Verify the SHA-256 checksum of the downloaded file."""
+    sha256_hash = hashlib.sha256()
+    with open(file_path, "rb") as f:
+        for byte_block in iter(lambda: f.read(4096), b""):
+            sha256_hash.update(byte_block)
+    return sha256_hash.hexdigest() == expected_hash
+
+def download_geekbench():
+    """Download Geekbench for the current platform."""
+    system = platform.system().lower()
+    if system == "linux":
+        url = "https://cdn.geekbench.com/Geekbench-5.4.4-Linux.tar.gz"
+        # Add code to download the file
+    elif system == "darwin":
+        url = "https://cdn.geekbench.com/Geekbench-5.4.4-Mac.tar.gz"
+        # Add code to download the file
+    elif system == "windows":
+        url = "https://cdn.geekbench.com/Geekbench-5.4.4-Windows.zip"
+        # Add code to download the file
+    else:
+        print("Unsupported platform.")
+        return None
+    return url
+
+def run_benchmark():
+    """Run the Geekbench benchmark."""
+    geekbench_path = download_geekbench()
+    if geekbench_path:
+        # Add code to extract and run Geekbench
+        pass
+
+if __name__ == "__main__":
+    run_benchmark()
+```
+
+Make sure to customize the download and extraction logic as needed.
+
 ## Usage
 
 1. Clone the repository:
@@ -39,6 +105,12 @@ bash <(wget -qO- https://raw.githubusercontent.com/melthehe/GeekbenchMultiTester
 
    ```bash
    bash gb5-test.sh
+   ```
+
+   or for Python:
+
+   ```bash
+   python3 geekbench_multitester.py
    ```
 
 3. Follow the on-screen instructions to perform the benchmark.
